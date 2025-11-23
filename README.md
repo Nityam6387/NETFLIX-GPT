@@ -7,6 +7,17 @@
    - Now, Set-up App.js file by return Body Component ; Set-up routing in Body Component for Login and Browse Component
    - App.js => return Body Comp => returns Browse Comp. & Login Comp. => returns Header Comp.
 
+-  Login Form
+-  Sign Up Form
+-  Form Validation
+-  useRef hook
+-  Firebase Setup
+-  Deploy our app to production on firebase
+-  Create SignUp User Account
+-  Implement Sign In User API
+-  Create Redux Store with userSlice
+
+
 
 
 
