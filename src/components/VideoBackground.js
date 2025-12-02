@@ -8,7 +8,7 @@ const VideoBackground = ({id}) => {
     const trailer = useSelector((store)=> store?.movie?.trailerVideo);
 
   return (
-    <div>
+    <div className=''>
           <iframe
         id="yt-player"
         className="w-screen aspect-video"

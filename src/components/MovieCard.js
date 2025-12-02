@@ -1,5 +1,5 @@
 import React from 'react'
-import { POSTER_CDN } from '../utils/constant';
+import { POSTER_CDN } from '../utils/constant.js';
 
 const MovieCard = ({poster}) => {
 
@@ -10,8 +10,8 @@ const MovieCard = ({poster}) => {
     //  console.log("poster is" , posterImg);
 
    return (
-    <div className='w-48 pr-4' >
-         <img src={POSTER_CDN + poster}></img>
+    <div className='w-28 flex-shrink-0 sm:w-32 md:w-40 lg:w-48'>
+         <img className='h-full w-full rounded-md object-cover shadow-lg' src={POSTER_CDN + poster} alt="movie poster"></img>
     </div>
   )
 }

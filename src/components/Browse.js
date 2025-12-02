@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Header from "./Header";
-import { API_KEY } from "../utils/constant"
+import { API_KEY } from "../utils/constant.js"
 import { addNowPlayingMovies } from "../utils/movieSlice";
 import { useDispatch, useSelector } from "react-redux";
 import useNowPlayingMovies from "../utils/useNowPlayingMovies";
@@ -9,7 +9,7 @@ import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../utils/usePopularMovies";
 import useUpcomingMovies from "../utils/useUpcomingMovies";
 import useTopRatedMovies from "../utils/useTopRatedMovies";
-import GptSearch from "./GptSearch";
+import GptSearch from "./GptSearch.js";
 const Browse = () => {
 
 //     const dispatch = useDispatch();
@@ -32,23 +32,19 @@ const Browse = () => {
 
   const showGptSearch = useSelector((store) => store?.gpt?.showGptSearch);
 
-    return (
-        <div> 
-            <Header/>
-            { showGptSearch ? ( 
-                <GptSearch/>
-             ) : (
-                 <>
-                   <MainContainer/>
-              <div>
-                  <SecondaryContainer/>
-              </div> 
-            </> 
-                 )
-            } 
-           
-        </div>
-    );
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <Header />
+      {showGptSearch ? (
+        <GptSearch />
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
+    </div>
+  );
 };
 
 export default Browse;

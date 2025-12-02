@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "./Header";
+import Header from "./Header.js";
 import { useState , useRef } from "react";
-import { checkValidData } from "../utils/validation";
+import { checkValidData } from "../utils/validation.js";
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword  , updateProfile} from "firebase/auth";
-import { auth } from "../utils/firebase";
+import { auth } from "../utils/firebase.js";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
+import { addUser } from "../utils/userSlice.js";
 
 const Login = () => {
 
@@ -107,26 +107,60 @@ const Login = () => {
  }
 
   return (
-  <div className="relative">
-
+    <div className="relative min-h-screen text-white">
       <Header />
 
-      <div className= "absolute z-0">
-        <img className = "" src="https://assets.nflxext.com/ffe/siteui/vlv3/a92a67ee-cd07-46a8-8354-c431a96a97b0/web/IN-en-20251103-TRIFECTA-perspective_8a65e995-9926-414c-83c5-f7cc9af10871_small.jpg" alt = "bg"></img>
+      <div className="absolute inset-0 -z-10">
+        <img
+          className="h-full w-full object-cover"
+          src="https://assets.nflxext.com/ffe/siteui/vlv3/a92a67ee-cd07-46a8-8354-c431a96a97b0/web/IN-en-20251103-TRIFECTA-perspective_8a65e995-9926-414c-83c5-f7cc9af10871_small.jpg"
+          alt="background"
+        ></img>
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      <form className="absolute p-12 my-36 mx-auto left-0 right-0 w-3/12 bg-black text-white bg-opacity-60 rounded-md" onSubmit={(e) => e.preventDefault()}>
-      <h1 className="font-bold text-3xl py-4"> {isSignIn ? "Sign In" : "Sign Up"} </h1>
-        { !isSignIn && <input ref={name} className="p-4 my-4 w-full rounded-md bg-black bg-opacity-60" type="text" placeholder="Full Name"></input>  }
-        {/* { !isSignIn && <input className="p-4 my-4 w-full rounded-md bg-black bg-opacity-60" type="tel" placeholder="Mobile No."></input>  } */}
-        <input ref={email} className="p-4 my-4 w-full rounded-md bg-black bg-opacity-60" type="text" placeholder="Email"></input>
-        <input ref={password} className="p-4 my-4 w-full rounded-md  bg-black bg-opacity-60" type="password" placeholder="Password"></input>
-        <button className="bg-red-800 rounded-md p-4 my-6 w-full" onClick={handleButtonClick}> {isSignIn ? "Sign In" : "Sign Up"} </button>
-        <p className="text-red-800 font-bold font-2xl my-2">{errorMessage}</p>
-        <p className="cursor-pointer" onClick = {toggleSignIn}> { isSignIn ?  "New to Netflix?Sign up now." : "Already Registered! Sign in now." } </p>
-      </form>
+      <div className="relative flex min-h-screen items-center justify-center px-4 py-20 sm:px-6 lg:px-8">
+        <form
+          className="w-full max-w-md rounded-lg bg-black/70 p-6 backdrop-blur md:max-w-lg md:p-10"
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <h1 className="py-4 text-2xl font-bold sm:text-3xl">
+            {isSignIn ? "Sign In" : "Sign Up"}
+          </h1>
+          {!isSignIn && (
+            <input
+              ref={name}
+              className="my-3 w-full rounded-md border border-white/20 bg-black/60 p-4"
+              type="text"
+              placeholder="Full Name"
+            ></input>
+          )}
+          <input
+            ref={email}
+            className="my-3 w-full rounded-md border border-white/20 bg-black/60 p-4"
+            type="text"
+            placeholder="Email"
+          ></input>
+          <input
+            ref={password}
+            className="my-3 w-full rounded-md border border-white/20 bg-black/60 p-4"
+            type="password"
+            placeholder="Password"
+          ></input>
+          <button
+            className="my-6 w-full rounded-md bg-red-700 py-3 font-semibold transition hover:bg-red-600"
+            onClick={handleButtonClick}
+          >
+            {isSignIn ? "Sign In" : "Sign Up"}
+          </button>
+          <p className="my-2 text-sm font-semibold text-red-400">{errorMessage}</p>
+          <p className="cursor-pointer text-center text-sm text-gray-300 hover:underline" onClick={toggleSignIn}>
+            {isSignIn ? "New to Netflix? Sign up now." : "Already Registered! Sign in now."}
+          </p>
+        </form>
+      </div>
     </div>
-    );
+  );
 };
 
 export default Login;

@@ -1,5 +1,7 @@
 export const API_KEY = "2e8f302e9d27c1f7c72a363924243420" ;
 
+
+
 export const API_OPTIONS = {
   method: "GET",
   headers: {
@@ -24,3 +26,5 @@ export const SUPPORTED_LANGUAGE = [
   name: "Spanish"
 }
 ];
+
+export const OPENAI_KEY = "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" ;
