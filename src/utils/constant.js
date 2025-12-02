@@ -27,4 +27,3 @@ export const SUPPORTED_LANGUAGE = [
 }
 ];
 
-export const OPENAI_KEY = "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" ;
